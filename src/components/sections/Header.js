@@ -1,3 +1,4 @@
+import { landingImages } from "@/data/landing-images";
 import { Button, Group } from "@mantine/core";
 import Image from "next/image";
 import { Navbar } from "../layouts";
