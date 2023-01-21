@@ -1,15 +1,10 @@
 import {
   AboutSection,
-  Header,
-  ServicesSection,
   Contributor,
-} from "@/components/sections";
-import {
-  AboutSection,
   FaqSection,
   Header,
   ServicesSection,
-} from "@/components/sections";
+} from "@/components/sections"
 
 export default function Home() {
   return (
@@ -18,7 +13,8 @@ export default function Home() {
 
       <ServicesSection />
       <AboutSection />
+      <FaqSection />
       <Contributor />
     </>
-  );
+  )
 }
