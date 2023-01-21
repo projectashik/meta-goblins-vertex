@@ -1,12 +1,18 @@
-import { AboutSection, Header, ServicesSection } from '@/components/sections'
+import {
+  AboutSection,
+  Header,
+  ServicesSection,
+  Contributor,
+} from "@/components/sections";
 
 export default function Home() {
   return (
     <>
-   <Header/>
+      <Header />
 
-    <ServicesSection/>
-    <AboutSection/>
+      <ServicesSection />
+      <AboutSection />
+      <Contributor />
     </>
-  )
+  );
 }
