@@ -30,7 +30,7 @@ const Navbar = ({ setOpen }) => {
               color='dark'
               className='!text-primary'
             >
-              Sign Up
+              Sign Up As Distributer
             </Button>
           </li>
         </ul>

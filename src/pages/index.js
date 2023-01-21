@@ -4,17 +4,23 @@ import {
   FaqSection,
   Header,
   ServicesSection,
-} from "@/components/sections"
+} from "@/components/sections/Index"
+import { Auth } from "@/components/ui"
+import { useState } from "react"
 
 export default function Home() {
+  const [open, setOpen] = useState(false)
+  const [currentView, setCurrentView] = useState("register")
   return (
     <>
-      <Header />
+      <Header setOpen={setOpen} />
 
       <ServicesSection />
       <AboutSection />
       <FaqSection />
       <Contributor />
+
+      <Auth open={open} setOpen={setOpen} view={currentView} />
     </>
   )
 }
