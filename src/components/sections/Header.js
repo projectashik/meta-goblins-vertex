@@ -24,7 +24,6 @@ const Header = () => {
       </div>
 
 
-
       <div className="grid grid-cols-2 justify-items-center gap-2 ">
         {landingImages.map((image, index) => (
           <Image src={image} key={index} className="aspect-square" alt="LeftOverLift" width={"500"} height={"500"} />
