@@ -67,7 +67,13 @@ const Login = () => {
       return
     }
     setOtpLoading(true)
-    await axios.post("/api/otp", { phone: form.values.phone, type: "login" })
+    try {
+      await axios.post("/api/otp", { phone: form.values.phone, type: "login" })
+    } catch (error) {
+      toast.error(error.response.data.message)
+      setLoading(false)
+      return
+    }
     toast.success("OTP sent successfully")
     setOtpLoading(false)
   }

@@ -2,9 +2,12 @@ import SidebarProvider from "@/context/SidebarProvider"
 import { createEmotionCache, MantineProvider } from "@mantine/core"
 import { NotificationsProvider } from "@mantine/notifications"
 import { Nunito } from "@next/font/google"
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react"
 import { SessionProvider } from "next-auth/react"
 import Head from "next/head"
 import "../styles/globals.css"
+
+const leftOverChain = ChainId.Mumbai
 
 const nunito = Nunito({
   weights: [400, 700],
@@ -46,7 +49,9 @@ export default function App(props) {
         >
           <NotificationsProvider>
             <SidebarProvider>
-              <Component {...pageProps} />
+              <ThirdwebProvider desiredChainId={leftOverChain}>
+                <Component {...pageProps} />
+              </ThirdwebProvider>
             </SidebarProvider>
           </NotificationsProvider>
         </MantineProvider>

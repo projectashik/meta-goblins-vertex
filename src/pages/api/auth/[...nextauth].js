@@ -20,7 +20,7 @@ export const authOptions = {
             otp: credentials.otp,
           },
         })
-        if (user.otpExpiry < new Date()) {
+        if (user && user.otpExpiry && user.otpExpiry < new Date()) {
           return null
         }
         if (user) {

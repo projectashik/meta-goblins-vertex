@@ -2,6 +2,7 @@ import Sidebar from "@/components/layouts/Sidebar"
 import { toast } from "@/components/ui/Toast"
 import { useSidebar } from "@/hooks"
 import { ActionIcon } from "@mantine/core"
+import { ConnectWallet } from "@thirdweb-dev/react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
@@ -24,10 +25,11 @@ const DashboardLayout = ({ children }) => {
     <div className='flex'>
       <Sidebar />
       <main className='flex-1 transition-all bg-[#fefbf5]'>
-        <header className='h-16 bg-white border-b border-l px-3 flex items-center'>
+        <header className='h-16 bg-white border-b border-l justify-between px-3 flex items-center'>
           <ActionIcon size='lg' onClick={toggleSidebar}>
             <HiOutlineMenuAlt2 className='text-xl' />
           </ActionIcon>
+          <ConnectWallet />
         </header>
 
         <div className='p-3'>{children}</div>

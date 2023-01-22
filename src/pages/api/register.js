@@ -2,7 +2,8 @@ import prisma from "@/libs/prisma"
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { role, name, email, phone, otp, latitude, longitude } = req.body
+    const { role, name, email, phone, otp, latitude, longitude, type } =
+      req.body
 
     const sentOtp = await prisma.otp.findFirst({
       where: {
@@ -39,6 +40,7 @@ export default async function handler(req, res) {
         name: name,
         email: email,
         phone: phone,
+        type,
         role: role,
         latitude: latitude,
         longitude: longitude,

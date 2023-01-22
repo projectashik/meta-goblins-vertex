@@ -77,7 +77,8 @@ model Listings {
   id          Int      @id @default(autoincrement())
   title       String
   description String
-  address     String?
+  latitude    String?
+  longitude   String?
   type        Type
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      Int

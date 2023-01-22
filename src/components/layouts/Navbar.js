@@ -24,7 +24,7 @@ const Navbar = ({ setOpen }) => {
         LeftOverLift
       </Link>
       <nav>
-        <ul className='flex items-center gap-4 hidden md:flex '>
+        <ul className='items-center gap-4 hidden md:flex '>
           <li>
             <a href='#about' className='text-gray-700 font-bold'>
               About Us

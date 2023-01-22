@@ -6,6 +6,7 @@ import {
   TileLayer,
   useMapEvents,
 } from "react-leaflet"
+import * as Leaflet from "leaflet"
 
 function LocationMarker({ location, setLocation }) {
   const map = useMapEvents({
@@ -18,8 +19,12 @@ function LocationMarker({ location, setLocation }) {
     },
   })
 
+  const icon = Leaflet.icon({
+    iconUrl: "/marker-icon-2x.png",
+  })
+
   return location === null ? null : (
-    <Marker draggable position={location}>
+    <Marker icon={icon} draggable position={location}>
       <Popup>You are here</Popup>
     </Marker>
   )
