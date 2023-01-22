@@ -1,38 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Name : LeftOverLift
 
-## Getting Started
+LeftOverLift is a web application that aims to revolutionize the way we manage food waste. It is built using Next.js, Tailwind CSS, Mantine, Prisma, Smarrow SMS, and Leaflet.
 
-First, run the development server:
+The application allows users to track their food waste, and it also provides a way to redistribute surplus food to those in need. The application uses geolocation to connect food providers with charities and food banks in the area.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Installation
+
+To run LeftOverLift, you will need to have Node.js and npm installed on your system. You can install them from the official website.
+
+Once you have the dependencies installed, you can clone the repository and install the required packages by running the following commands:
+
+```
+git clone https://github.com/projectashik/meta-goblins-vertex
+
+yarn install
+or
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Note : You also need to install prisma client and configure it with your database by following the instruction in prisma documentation.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Usage
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To start the development server, run the following command:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm run dev
+or
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This will start a development server on http://localhost:3000. You can access the application by going to that URL in your web browser.
 
-## Learn More
+# Code documentation
 
-To learn more about Next.js, take a look at the following resources:
+The codebase is organized into several key directories:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `pages/` : This directory contains the Next.js pages of the application.
+- `components/` : This directory contains the reusable components used throughout the application.
+- `lib/` : This directory contains the utility functions and libraries used in the application.
+- `public/` : This directory contains the static assets of the application such as images, fonts, and styles.
+- `context/` : This directory contains all the contexts.
+- `data/` : This directory contains all the datas.
+- `hooks/` : This directory contains the custom hooks.
+- `layouts/` : This directory contains the custom layouts for our website.
+- `libs/` : This directory contains the configurations related to the third-party apis.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+LeftOverLift is released under the MIT License.
