@@ -1,5 +1,6 @@
 import SidebarProvider from "@/context/SidebarProvider"
 import { createEmotionCache, MantineProvider } from "@mantine/core"
+import { NotificationsProvider } from "@mantine/notifications"
 import { Nunito } from "@next/font/google"
 import Head from "next/head"
 import "../styles/globals.css"
@@ -42,9 +43,11 @@ export default function App(props) {
           },
         }}
       >
-        <SidebarProvider>
-          <Component {...pageProps} />
-        </SidebarProvider>
+        <NotificationsProvider>
+          <SidebarProvider>
+            <Component {...pageProps} />
+          </SidebarProvider>
+        </NotificationsProvider>
       </MantineProvider>
     </div>
   )
