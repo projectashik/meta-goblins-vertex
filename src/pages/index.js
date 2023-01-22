@@ -1,3 +1,4 @@
+import { Footer } from "@/components/sections/Distributor"
 import {
   AboutSection,
   Contributor,
@@ -19,6 +20,7 @@ export default function Home() {
       <AboutSection />
       <FaqSection />
       <Contributor />
+      <Footer />
 
       <Auth open={open} setOpen={setOpen} view={currentView} />
     </>

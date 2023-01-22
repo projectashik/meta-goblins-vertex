@@ -1,4 +1,3 @@
-import { Footer } from "@/components/sections/Distributor"
 import { createEmotionCache, MantineProvider } from "@mantine/core"
 import { Nunito } from "@next/font/google"
 import Head from "next/head"
@@ -36,13 +35,13 @@ export default function App(props) {
         theme={{
           /** Put your mantine theme override here */
           colorScheme: "light",
+          fontFamily: nunito.style.fontFamily,
           colors: {
             brand: ["ECD41C"],
           },
         }}
       >
         <Component {...pageProps} />
-        <Footer />
       </MantineProvider>
     </div>
   )

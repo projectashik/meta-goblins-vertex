@@ -1,5 +1,6 @@
 import {
   AllDistributors,
+  Footer,
   Header,
   Perks,
 } from "@/components/sections/Distributor"
@@ -17,6 +18,7 @@ const Distributers = () => {
       <AllDistributors />
       <FaqSection />
       <DistroAuth open={open} setOpen={setOpen} view={view} />
+      <Footer />
     </>
   )
 }
