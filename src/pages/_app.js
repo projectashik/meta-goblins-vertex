@@ -2,6 +2,7 @@ import SidebarProvider from "@/context/SidebarProvider"
 import { createEmotionCache, MantineProvider } from "@mantine/core"
 import { NotificationsProvider } from "@mantine/notifications"
 import { Nunito } from "@next/font/google"
+import { SessionProvider } from "next-auth/react"
 import Head from "next/head"
 import "../styles/globals.css"
 
@@ -29,26 +30,27 @@ export default function App(props) {
           content='minimum-scale=1, initial-scale=1, width=device-width'
         />
       </Head>
-
-      <MantineProvider
-        emotionCache={mantineCache}
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: "light",
-          fontFamily: nunito.style.fontFamily,
-          colors: {
-            brand: ["ECD41C"],
-          },
-        }}
-      >
-        <NotificationsProvider>
-          <SidebarProvider>
-            <Component {...pageProps} />
-          </SidebarProvider>
-        </NotificationsProvider>
-      </MantineProvider>
+      <SessionProvider>
+        <MantineProvider
+          emotionCache={mantineCache}
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            /** Put your mantine theme override here */
+            colorScheme: "light",
+            fontFamily: nunito.style.fontFamily,
+            colors: {
+              brand: ["ECD41C"],
+            },
+          }}
+        >
+          <NotificationsProvider>
+            <SidebarProvider>
+              <Component {...pageProps} />
+            </SidebarProvider>
+          </NotificationsProvider>
+        </MantineProvider>
+      </SessionProvider>
     </div>
   )
 }

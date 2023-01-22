@@ -1,7 +1,9 @@
 import { IconFoodbank, IconNft } from "@/components/Icons"
 import { SidebarLink } from "@/components/ui"
 import { useSidebar } from "@/hooks"
-import { clsx, Stack, Text, Title } from "@mantine/core"
+import { Button, clsx, Stack, Text, Title } from "@mantine/core"
+import { signOut } from "next-auth/react"
+import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { FiPercent } from "react-icons/fi"
 import { GrHistory } from "react-icons/gr"
@@ -41,6 +43,8 @@ const Sidebar = () => {
   useEffect(() => {
     console.log(isOpen)
   }, [isOpen])
+
+  const router = useRouter()
   return (
     <div
       className={clsx(
@@ -63,6 +67,16 @@ const Sidebar = () => {
           {sidebarItems.map((item, index) => (
             <SidebarLink key={index} {...item} />
           ))}
+
+          <Button
+            onClick={() => {
+              signOut()
+              router.push("/")
+            }}
+            className='!bg-primary !text-black'
+          >
+            Logout
+          </Button>
         </Stack>
       </div>
     </div>
