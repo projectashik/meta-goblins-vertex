@@ -2,7 +2,6 @@ import Link from "next/link";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { ActionIcon } from "@mantine/core";
 import { useState } from "react";
-
 import { Menu, Button, Text } from "@mantine/core";
 // import {
 //   IconSettings,
@@ -49,9 +48,9 @@ const Navbar = ({ setOpen }) => {
           </li>
         </ul>
 
-        <div className="px-5">
+        <div className={`z-0 px-5`}>
           {" "}
-          <Menu shadow="md" width={"100%"} className="md:hidden">
+          <Menu shadow="md" width={"100%"} className={``}>
             <Menu.Target>
               <ActionIcon onClick={toggleNavbar}>
                 <div className="md:hidden">
@@ -60,7 +59,7 @@ const Navbar = ({ setOpen }) => {
               </ActionIcon>
             </Menu.Target>
 
-            <Menu.Dropdown>
+            <Menu.Dropdown className={isNavOpen ? "flex" : "hidden"}>
               <Menu.Label>
                 <a href="#about" className="text-gray-700 font-bold">
                   About Us
@@ -78,7 +77,10 @@ const Navbar = ({ setOpen }) => {
               </Menu.Label>
               <Menu.Label>
                 <Button
-                  onClick={() => setOpen(true)}
+                  onClick={() => {
+                    setOpen(true);
+                    toggleNavbar();
+                  }}
                   color="dark"
                   className="!text-primary"
                 >
