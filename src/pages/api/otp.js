@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         otpExpiry: new Date(new Date().getTime() + 5 * 60000),
       },
     })
-    const data = await sparrow.send(phone, otp)
+    const data = await sparrow.sendOtp(phone, otp)
     console.log(data)
 
     // Integrate Sparrow SMS API here

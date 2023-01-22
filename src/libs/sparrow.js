@@ -2,8 +2,7 @@ export const sparrow = {
   token: process.env.SPARROW_TOKEN,
   identity: process.env.SPARROW_IDENTITY,
   url: process.env.SPARROW_URL + "/sms",
-  send: async function (to, otp) {
-    const message = `Your OTP for LeftOverLift is ${otp}. It is valid for 5 minutes.`
+  send: async function (to, message) {
     const response = await fetch(this.url, {
       method: "POST",
       headers: {
@@ -21,5 +20,9 @@ export const sparrow = {
       throw new Error(data.message || "Something went wrong!")
     }
     return data
+  },
+  sendOtp: async function (to, otp) {
+    const message = `Your OTP for LeftOverLift is ${otp}. It is valid for 5 minutes.`
+    return await this.send(to, message)
   },
 }
