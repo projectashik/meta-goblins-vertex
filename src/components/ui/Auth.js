@@ -6,11 +6,14 @@ import {
   Paper,
   Radio,
   Tabs,
+  Text,
   TextInput,
   Tooltip,
 } from "@mantine/core"
 import { useForm } from "@mantine/form"
+import { useState } from "react"
 import { IconSend } from "../Icons"
+import Map from "../map"
 
 const Auth = ({ open, setOpen, view = "register" }) => {
   return (
@@ -63,26 +66,38 @@ const Register = () => {
   const form = useForm({
     initialValues: { role: "individual" },
   })
+  const [location, setLocation] = useState(null)
+
+  const handleSubmit = (values) => {
+    console.log(values)
+  }
   return (
-    <Paper className='space-y-3'>
+    <Paper
+      component='form'
+      onSubmit={form.onSubmit(handleSubmit)}
+      className='space-y-3'
+    >
       <Radio.Group {...form.getInputProps("role")} name='role' withAsterisk>
         <Radio value='individual' label='Individual' />
         <Radio value='restaurant' label='Restaurant' />
       </Radio.Group>
 
       <TextInput
+        withAsterisk
         {...form.getInputProps("name")}
         label='Name'
         placeholder='Niyoj Oli'
       />
 
       <TextInput
+        withAsterisk
         {...form.getInputProps("email")}
         label='Email'
         placeholder='niyoj@vertexhacks.tech'
       />
 
       <TextInput
+        withAsterisk
         {...form.getInputProps("phone")}
         label='Phone Number'
         placeholder='9876543210'
@@ -99,9 +114,15 @@ const Register = () => {
       )}
 
       <NumberInput
+        withAsterisk
         {...form.getInputProps("otp")}
         label='One Time Password (OTP)'
       />
+
+      <div className='aspect-square'>
+        <Text>Click map choose location</Text>
+        <Map location={location} setLocation={setLocation} />
+      </div>
 
       <Button size='md' color='dark'>
         Register
