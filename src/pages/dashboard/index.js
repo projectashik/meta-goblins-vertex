@@ -18,16 +18,16 @@ const Index = () => {
             <h1>Dashboard</h1>
             <div className='grid flex-1  grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3'>
               <Paper bg='teal.2' p='md' withBorder>
-                <Title>112</Title>
+                <Title>4</Title>
                 <Text>Total Meals</Text>
               </Paper>
               <Paper bg='teal.2' p='md' withBorder>
-                <Title>112</Title>
-                <Text>Total Meals</Text>
+                <Title>2</Title>
+                <Text>Total Edible</Text>
               </Paper>
               <Paper bg='teal.2' p='md' withBorder>
-                <Title>112</Title>
-                <Text>Total Meals</Text>
+                <Title>2</Title>
+                <Text>Total Non Edible</Text>
               </Paper>
             </div>
           </Paper>

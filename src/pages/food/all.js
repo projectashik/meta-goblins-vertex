@@ -15,6 +15,7 @@ import {
   Title,
 } from "@mantine/core"
 import Address from "@/components/ui/Address"
+import { toast } from "@/components/ui/Toast"
 
 const All = () => {
   const [location, setLocation] = useState(null)
@@ -74,6 +75,19 @@ const All = () => {
     )
   }
 
+  const getConfirmed = async (id) => {
+    console.log("Clicked")
+    try {
+      await axios.post("/api/confirm", {
+        listingId: id,
+      })
+
+      toast.success("Confirmed")
+    } catch (e) {
+      console.log(error)
+    }
+  }
+
   return (
     <DashboardLayout>
       <Paper>
@@ -103,7 +117,11 @@ const All = () => {
                       </Stack>
                     </Flex>
 
-                    <Button color='blue' variant='outline'>
+                    <Button
+                      onClick={() => getConfirmed(item.id)}
+                      color='blue'
+                      variant='outline'
+                    >
                       Intrested In
                     </Button>
                   </Paper>
@@ -132,7 +150,11 @@ const All = () => {
                       </Stack>
                     </Flex>
 
-                    <Button color='blue' variant='outline'>
+                    <Button
+                      onClick={() => getConfirmed(item.id)}
+                      color='blue'
+                      variant='outline'
+                    >
                       Intrested In
                     </Button>
                   </Paper>

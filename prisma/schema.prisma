@@ -55,8 +55,8 @@ model Session {
 }
 
 model User {
-  id            Int        @id @default(autoincrement())
-  email         String?    @unique
+  id            Int         @id @default(autoincrement())
+  email         String?     @unique
   otp           String?
   otpExpiry     DateTime?
   emailVerified DateTime?
@@ -71,19 +71,21 @@ model User {
   role          Role
   Listings      Listings[]
   Session       Session[]
+  Confirmed     Confirmed[]
 }
 
 model Listings {
-  id          Int      @id @default(autoincrement())
+  id          Int         @id @default(autoincrement())
   title       String
   description String
   latitude    String?
   longitude   String?
   type        Type
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  Confirmed   Confirmed[]
 
   @@index([userId])
 }
@@ -97,6 +99,9 @@ model Confirmed {
   is_sent     Boolean?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+
+  listing Listings @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([listingId])
   @@index([userId])
