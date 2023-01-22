@@ -1,5 +1,4 @@
 import Sidebar from "@/components/layouts/Sidebar"
-import SidebarProvider from "@/context/SidebarProvider"
 import { useSidebar } from "@/hooks"
 import { ActionIcon } from "@mantine/core"
 import { HiOutlineMenuAlt2 } from "react-icons/hi"
@@ -7,20 +6,18 @@ import { HiOutlineMenuAlt2 } from "react-icons/hi"
 const DashboardLayout = ({ children }) => {
   const { isOpen, toggleSidebar } = useSidebar()
   return (
-    <SidebarProvider>
-      <div className='flex'>
-        <Sidebar open={isOpen} />
-        <main className='flex-1'>
-          <header className='h-16 bg-white border-b border-l flex items-center'>
-            <ActionIcon onClick={toggleSidebar}>
-              <HiOutlineMenuAlt2 />
-            </ActionIcon>
-          </header>
+    <div className='flex'>
+      <Sidebar />
+      <main className='flex-1 transition-all bg-[#fefbf5]'>
+        <header className='h-16 bg-white border-b border-l px-3 flex items-center'>
+          <ActionIcon size='lg' onClick={toggleSidebar}>
+            <HiOutlineMenuAlt2 className='text-xl' />
+          </ActionIcon>
+        </header>
 
-          {children}
-        </main>
-      </div>
-    </SidebarProvider>
+        <div className='p-3'>{children}</div>
+      </main>
+    </div>
   )
 }
 export default DashboardLayout
