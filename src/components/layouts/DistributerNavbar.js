@@ -9,7 +9,7 @@ const Navbar = ({ setOpen }) => {
   const toggleNavbar = () => setNavOpen(!isNavOpen);
   console.log(isNavOpen);
   return (
-    <div className="container h-16 flex items-center justify-between">
+    <div className="container  py-4  flex items-center justify-between">
       <Link href="/" className="text-3xl font-bold">
         LeftOverLift
       </Link>
