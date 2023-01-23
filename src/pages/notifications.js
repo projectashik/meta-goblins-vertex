@@ -8,6 +8,7 @@ import axios from "axios"
 import { SessionContext, useSession } from "next-auth/react"
 import Link from "next/link"
 import { toast } from "@/components/ui/Toast"
+import { useContract, useMintToken } from "@thirdweb-dev/react"
 
 const dummyData = [
   {
@@ -39,12 +40,28 @@ const Notifications = () => {
 
   const { data: session } = useSession()
 
-  const received = async (id) => {
+  const { contract } = useContract(
+    "0x5BB5Cd9c04Fe12E67d1178b079238DFCed655940",
+    "FLT"
+  )
+  //   const { mutate: mintTokens, isLoading, error } = useMintToken(contract)
+
+  //   console.log(error)
+  //   console.log(isLoading)
+
+  const received = async (id, to) => {
     try {
       const data = await axios.post("/api/listings/received", {
         listingId: id,
       })
       toast.success("Listing received successfully")
+      //   mintTokens({
+      //     to: to,
+      //     amount: 1000,
+      //   })
+      const toAddress = to // Address of the wallet you want to mint the tokens to
+      const amount = "1000"
+      await contract.mintTo(toAddress, amount)
     } catch (e) {
       toast.error("Something went wrong")
       console.log(e)
@@ -92,7 +109,9 @@ const Notifications = () => {
                       }
                     >
                       <button
-                        onClick={() => received(singleData.id)}
+                        onClick={() =>
+                          received(singleData.id, singleData.user.wallet)
+                        }
                         className='hover:bg-gray-200 border-2 text-green-900 border-green-300 text-3xl p-1.5 rounded-full flex items-center justify-center cursor-pointer'
                       >
                         <TiTick />

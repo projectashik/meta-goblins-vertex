@@ -27,5 +27,15 @@ export default async function handler(req, res) {
           },
         })
 
+  if (role !== "collector") {
+    listings.filter((listing) => {
+      const userId = listing.user.id
+      if (userId === id) {
+        return true
+      }
+      return false
+    })
+  }
+
   return res.json(listings)
 }
